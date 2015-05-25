@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "huji.ac.il.testanalytics"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 2
+        versionName "2.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    // Google play services. For google analytics & mixpanel
+    compile 'com.google.android.gms:play-services:7.3.0'
+    // Flurry
+    compile files('libs/FlurryAnalytics-5.5.0.jar')
+    // Parse
+    compile files('libs/Parse-1.9.2.jar')
+    compile files('libs/ParseCrashReporting-1.9.2.jar')
+}
